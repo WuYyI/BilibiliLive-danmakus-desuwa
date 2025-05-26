@@ -1,6 +1,6 @@
 ## bilibili弹幕结尾自动添加desuwa
 
-原作者@阿琴-kotori
+斗鱼原作者@阿琴-kotori，移植至B站
 
 
 已上传至greasyfork
