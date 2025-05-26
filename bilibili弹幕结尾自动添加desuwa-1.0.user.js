@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name         弹幕结尾自动添加desuwa
+// @name         bilibili弹幕结尾自动添加desuwa
 // @namespace    https://space.bilibili.com/28106105?spm_id_from=333.1007.0.0
-// @version      2.3
-// @description  要开开发者模式!代码爆改b站@少女乐队抹茶大芭菲，原作者@阿琴-kotori
-// @author       ysl&akoto
-// @match        *://www.douyu.com/*
+// @version      1.0
+// @description  原作者@阿琴-kotori
+// @author       ysl&akoto&wuyyi
+// @match        *://live.bilibili.com/*
 // @grant        GM_openInTab
 // @grant        GM_xmlhttpRequest
 // @grant        GM_setClipboard
@@ -15,8 +15,10 @@
 // @grant        GM_cookie
 // @grant        GM_registerMenuCommand
 // @grant        unsafeWindow
-// @downloadURL https://update.greasyfork.org/scripts/536174/%E5%BC%B9%E5%B9%95%E7%BB%93%E5%B0%BE%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0desuwa.user.js
-// @updateURL https://update.greasyfork.org/scripts/536174/%E5%BC%B9%E5%B9%95%E7%BB%93%E5%B0%BE%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0desuwa.meta.js
+// @licence      MIT
+
+// @downloadURL https://update.greasyfork.org/scripts/537006/bilibili%E5%BC%B9%E5%B9%95%E7%BB%93%E5%B0%BE%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0desuwa.user.js
+// @updateURL https://update.greasyfork.org/scripts/537006/bilibili%E5%BC%B9%E5%B9%95%E7%BB%93%E5%B0%BE%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0desuwa.meta.js
 // ==/UserScript==
 
 (function() {
@@ -28,9 +30,9 @@ let currentSuffix = GM_getValue(SUFFIX_CONFIG_KEY, 'desuwa'); // 当前后缀，
 let isScriptEnabled = GM_getValue(ENABLED_CONFIG_KEY, true); // 脚本是否启用，默认 true
 
 // --- 常量定义 ---
-const MAX_LENGTH = 66; // 弹幕最大长度
-const INPUT_SELECTORS = '.inputView-1f53d9, .inputView-2a65aa'; // 标准模式和全屏模式的输入框选择器
-const SEND_BUTTON_SELECTORS = '.sendDanmu-741305, .sendDanmu-592760'; // 发送按钮选择器
+const MAX_LENGTH = 20; // 弹幕最大长度
+const INPUT_SELECTORS = 'textarea.chat-input.border-box'; // 标准模式和全屏模式的输入框选择器
+const SEND_BUTTON_SELECTORS = '.bl-button.live-skin-button-text.bl-button--primary'; // 发送按钮选择器
 
 // --- 状态变量 ---
 let lastProcessedValue = null; // 上一次脚本处理后的输入框最终值，用于避免不必要的DOM操作和事件递归
@@ -247,7 +249,7 @@ document.addEventListener('keydown', function(e) {
         if (!textarea) return;
 
         // 添加后缀并处理长度限制
-        const maxLength = 66;
+        const maxLength = 20;
         const suffix = currentSuffix;
         const baseText = textarea.value.replace(/desuwa$/, ''); // 避免重复添加
 
