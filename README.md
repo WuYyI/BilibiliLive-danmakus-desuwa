@@ -6,7 +6,7 @@
 
 1. 安装 [Tampermonkey](https://www.tampermonkey.net/) 浏览器扩展
 2. 在 [Greasy Fork](https://greasyfork.org/zh-CN/scripts/537006-bilibili%E5%BC%B9%E5%B9%95%E7%BB%93%E5%B0%BE%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0desuwa) 安装脚本
-3. 在 [BiliBili](https://https://live.bilibili.com/) 尝试发送弹幕
+3. 在 [BiliBili](https://live.bilibili.com/) 尝试发送弹幕 
 
 ### 自定义设置
 
