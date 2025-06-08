@@ -1,4 +1,4 @@
-## 在bilibili发送弹幕时，结尾添加desuwa
+## 在bilibili发送弹幕时结尾添加desuwa
 
 
 
